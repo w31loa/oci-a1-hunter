@@ -1,0 +1,30 @@
+__pycache__/
+*.py[cod]
+.venv/
+dist/
+build/
+*.spec
+*.egg-info/
+.pytest_cache/
+.ruff_cache/
+
+# Local settings and results: OCIDs, tokens, IPs. Only the blank template is public.
+config*.txt
+!config.example.txt
+*.toml
+!pyproject.toml
+instance*.json
+out/
+*.log
+
+# Keys and credentials of any kind
+.oci/
+*.pem
+*.key
+*.p12
+*.pfx
+*.pub
+id_*
+*_api_key*
+.env*
+secrets.*

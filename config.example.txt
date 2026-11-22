@@ -1,0 +1,65 @@
+# a1-hunter settings. Format: key = value. Lines starting with # are comments.
+# Then run:  a1-hunter
+
+# === Oracle Cloud access ===
+# Profile (top right) -> My profile -> API keys -> Add API key.
+# Either generate a key pair there and download the private key, or run `a1-hunter init`
+# which makes the key for you. Then copy the values from 'Configuration file preview'.
+# Leave these empty to use an existing ~/.oci/config.
+tenancy = 
+user = 
+fingerprint = 
+# path to the private key (.pem)
+key_file = 
+# region (location), e.g. eu-frankfurt-1. Always Free works only in your home region
+region = 
+
+# === Server ===
+# CPU cores. Free: up to 4 in total
+ocpus = 4
+# RAM in GB. Free: up to 24 in total
+memory_gb = 24
+# disk in GB (50..200). Free: 200 in total across all disks
+boot_volume_gb = 200
+# OS: Ubuntu 24.04, Ubuntu 22.04, Oracle Linux 9, Oracle Linux 8
+image = Ubuntu 24.04
+# server name
+display_name = a1-free
+# SSH public key; empty = ~/.ssh/id_ed25519.pub or create a new one
+ssh_public_key_file = 
+
+# === Notifications (optional) ===
+# notification on this computer (yes/no)
+desktop_notify = yes
+# bot token from @BotFather
+telegram_bot_token = 
+# your chat id (ask @userinfobot)
+telegram_chat_id = 
+# ntfy.sh topic, subscribe to it in the ntfy app
+ntfy_topic = 
+ntfy_server = https://ntfy.sh
+
+# === How often to try ===
+# seconds between attempts
+interval = 60
+# random spread of the interval, 0.2 = +/-20%
+jitter = 0.2
+# max pause in seconds when Oracle says 'too many requests'
+max_backoff = 600
+
+# === Advanced (usually leave as is) ===
+# comma-separated; empty = try all
+availability_domains = 
+# empty = use a public subnet, create one if there is none
+subnet_id = 
+# exact image OCID, overrides `image`
+image_id = 
+shape = VM.Standard.A1.Flex
+assign_public_ip = yes
+# empty = root compartment
+compartment_id = 
+# used when the access fields above are empty
+oci_config_file = ~/.oci/config
+oci_profile = DEFAULT
+# where to save the created server details
+output_file = instance.json
